@@ -35,7 +35,7 @@ HEADER = ParagraphStyle("header", parent=CELL, fontName="Bold", textColor=colors
 
 
 def para(text, style=BODY):
-    safe = escape(text.replace("—", "–"))
+    safe = escape(text)
     safe = re.sub(r"`([^`]+)`", r'<font color="#12615f">\1</font>', safe)
     return Paragraph(safe, style)
 

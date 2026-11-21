@@ -11,18 +11,18 @@ Na orbitální stanici se utrhla z izolace fiktivní houbovitá nákaza. Prorůs
 | ID | Prostor a popis | Sousedé | Počáteční vybavení |
 | --- | --- | --- | --- |
 | 0 | Kajuta - služební ubytovna | 1, 12 | servisní klika, rozvaděč |
-| 1 | Chodba - obytný koridor | 0, 2 | — |
+| 1 | Chodba - obytný koridor | 0, 2 | - |
 | 2 | Chladicí komora - rozvod tepla | 1, 3 | ventil |
 | 3 | Velín - řízení evakuace | 2, 4 (A) | konzole |
 | 4 | Sklad - náhradní díly | 3 (A), 5 (B) | pojistka |
-| 5 | Dílna - odstavené ponky | 4 (B), 6 | — |
-| 6 | Ošetřovna - prázdná ambulance | 5, 7 | — |
-| 7 | Servisní tunel - kabelový průchod | 6, 8 | — |
+| 5 | Dílna - odstavené ponky | 4 (B), 6 | - |
+| 6 | Ošetřovna - prázdná ambulance | 5, 7 | - |
+| 7 | Servisní tunel - kabelový průchod | 6, 8 | - |
 | 8 | Strojovna - záložní zásoby | 7, 9 (C) | patrona |
-| 9 | Předsíň - vstup k rampě | 8 (C), 10 | — |
+| 9 | Předsíň - vstup k rampě | 8 (C), 10 | - |
 | 10 | Hangár - odpalovací rampa | 9, 11 (D) | panel rampy, karta |
 | 11 | Únikový modul - kabina kapsle | 10 (D) | startovací pult |
-| 12 | Zadní strojovna - ohnisko nákazy | 0 | — |
+| 12 | Zadní strojovna - ohnisko nákazy | 0 | - |
 
 ### Předměty a prvky
 
@@ -84,18 +84,18 @@ Sloupec „Přesný výstup“ tvoří první část sekce 4. U změn se vždy u
 
 | Tah | Příkaz | Prostor | Batoh | Změna | Přesný výstup |
 | --- | --- | --- | --- | --- | --- |
-| 1 | seber servisni klika | Kajuta | servisní klika | — | Sebráno: servisní klika. |
-| 2 | jdi chodba | Chodba | servisní klika | — | Přesun: Chodba. |
-| 3 | jdi chladici komora | Chladicí komora | servisní klika | — | Přesun: Chladicí komora. |
-| 4 | jdi velin | Velín | servisní klika | — | Přesun: Velín. |
+| 1 | seber servisni klika | Kajuta | servisní klika | - | Sebráno: servisní klika. |
+| 2 | jdi chodba | Chodba | servisní klika | - | Přesun: Chodba. |
+| 3 | jdi chladici komora | Chladicí komora | servisní klika | - | Přesun: Chladicí komora. |
+| 4 | jdi velin | Velín | servisní klika | - | Přesun: Velín. |
 | 5 | odjisti a | Velín | servisní klika | Otevřena A | Přepážka A je otevřená. |
-| 6 | poloz servisni klika | Velín | — | — | Položeno: servisní klika. |
-| 7 | jdi sklad | Sklad | — | — | Přesun: Sklad. |
-| 8 | seber pojistka | Sklad | pojistka | — | Sebráno: pojistka. |
-| 9 | jdi velin | Velín | pojistka | — | Přesun: Velín. |
-| 10 | jdi chladici komora | Chladicí komora | pojistka | — | Přesun: Chladicí komora. |
-| 11 | jdi chodba | Chodba | pojistka | — | Přesun: Chodba. |
-| 12 | jdi kajuta | Kajuta | pojistka | — | Přesun: Kajuta. |
+| 6 | poloz servisni klika | Velín | - | - | Položeno: servisní klika. |
+| 7 | jdi sklad | Sklad | - | - | Přesun: Sklad. |
+| 8 | seber pojistka | Sklad | pojistka | - | Sebráno: pojistka. |
+| 9 | jdi velin | Velín | pojistka | - | Přesun: Velín. |
+| 10 | jdi chladici komora | Chladicí komora | pojistka | - | Přesun: Chladicí komora. |
+| 11 | jdi chodba | Chodba | pojistka | - | Přesun: Chodba. |
+| 12 | jdi kajuta | Kajuta | pojistka | - | Přesun: Kajuta. |
 
 <!-- page -->
 
@@ -103,22 +103,22 @@ Sloupec „Přesný výstup“ tvoří první část sekce 4. U změn se vždy u
 
 | Tah | Příkaz | Prostor | Batoh | Změna | Přesný výstup |
 | --- | --- | --- | --- | --- | --- |
-| 13 | vymen pojistku | Kajuta | — | Osazena pojistka | Pojistka je osazená. |
-| 14 | zapni rozvadec | Kajuta | — | Proud, otevřena B | Napájení obnoveno. Přepážka B je otevřená. |
-| 15 | jdi chodba | Chodba | — | — | Přesun: Chodba. |
-| 16 | jdi chladici komora | Chladicí komora | — | — | Přesun: Chladicí komora. |
-| 17 | jdi velin | Velín | — | — | Přesun: Velín. |
-| 18 | jdi sklad | Sklad | — | — | Přesun: Sklad. |
-| 19 | jdi dilna | Dílna | — | — | Přesun: Dílna. |
-| 20 | jdi osetrovna | Ošetřovna | — | — | Přesun: Ošetřovna. |
-| 21 | jdi servisni tunel | Servisní tunel | — | — | Přesun: Servisní tunel. |
-| 22 | jdi strojovna | Strojovna | — | — | Přesun: Strojovna. |
-| 23 | seber patrona | Strojovna | patrona | — | Sebráno: patrona. |
+| 13 | vymen pojistku | Kajuta | - | Osazena pojistka | Pojistka je osazená. |
+| 14 | zapni rozvadec | Kajuta | - | Proud, otevřena B | Napájení obnoveno. Přepážka B je otevřená. |
+| 15 | jdi chodba | Chodba | - | - | Přesun: Chodba. |
+| 16 | jdi chladici komora | Chladicí komora | - | - | Přesun: Chladicí komora. |
+| 17 | jdi velin | Velín | - | - | Přesun: Velín. |
+| 18 | jdi sklad | Sklad | - | - | Přesun: Sklad. |
+| 19 | jdi dilna | Dílna | - | - | Přesun: Dílna. |
+| 20 | jdi osetrovna | Ošetřovna | - | - | Přesun: Ošetřovna. |
+| 21 | jdi servisni tunel | Servisní tunel | - | - | Přesun: Servisní tunel. |
+| 22 | jdi strojovna | Strojovna | - | - | Přesun: Strojovna. |
+| 23 | seber patrona | Strojovna | patrona | - | Sebráno: patrona. |
 | 24 | jdi servisni tunel | Servisní tunel | patrona | Nákaza: Kajuta | Přesun: Servisní tunel. [NL] Nákaza postoupila: Kajuta. |
-| 25 | jdi osetrovna | Ošetřovna | patrona | — | Přesun: Ošetřovna. |
-| 26 | jdi dilna | Dílna | patrona | — | Přesun: Dílna. |
-| 27 | jdi sklad | Sklad | patrona | — | Přesun: Sklad. |
-| 28 | jdi velin | Velín | patrona | — | Přesun: Velín. |
+| 25 | jdi osetrovna | Ošetřovna | patrona | - | Přesun: Ošetřovna. |
+| 26 | jdi dilna | Dílna | patrona | - | Přesun: Dílna. |
+| 27 | jdi sklad | Sklad | patrona | - | Přesun: Sklad. |
+| 28 | jdi velin | Velín | patrona | - | Přesun: Velín. |
 
 <!-- page -->
 
@@ -126,22 +126,22 @@ Sloupec „Přesný výstup“ tvoří první část sekce 4. U změn se vždy u
 
 | Tah | Příkaz | Prostor | Batoh | Změna | Přesný výstup |
 | --- | --- | --- | --- | --- | --- |
-| 29 | jdi chladici komora | Chladicí komora | patrona | — | Přesun: Chladicí komora. |
-| 30 | otevri ventil | Chladicí komora | — | Chlazení, otevřena C | Chlazení běží. Přepážka C je otevřená. |
-| 31 | jdi velin | Velín | — | — | Přesun: Velín. |
-| 32 | jdi sklad | Sklad | — | — | Přesun: Sklad. |
-| 33 | jdi dilna | Dílna | — | — | Přesun: Dílna. |
-| 34 | jdi osetrovna | Ošetřovna | — | — | Přesun: Ošetřovna. |
-| 35 | jdi servisni tunel | Servisní tunel | — | — | Přesun: Servisní tunel. |
-| 36 | jdi strojovna | Strojovna | — | — | Přesun: Strojovna. |
-| 37 | jdi predsin | Předsíň | — | — | Přesun: Předsíň. |
-| 38 | jdi hangar | Hangár | — | — | Přesun: Hangár. |
-| 39 | seber karta | Hangár | karta | — | Sebráno: karta. |
-| 40 | jdi predsin | Předsíň | karta | — | Přesun: Předsíň. |
-| 41 | jdi strojovna | Strojovna | karta | — | Přesun: Strojovna. |
-| 42 | jdi servisni tunel | Servisní tunel | karta | — | Přesun: Servisní tunel. |
-| 43 | jdi osetrovna | Ošetřovna | karta | — | Přesun: Ošetřovna. |
-| 44 | jdi dilna | Dílna | karta | — | Přesun: Dílna. |
+| 29 | jdi chladici komora | Chladicí komora | patrona | - | Přesun: Chladicí komora. |
+| 30 | otevri ventil | Chladicí komora | - | Chlazení, otevřena C | Chlazení běží. Přepážka C je otevřená. |
+| 31 | jdi velin | Velín | - | - | Přesun: Velín. |
+| 32 | jdi sklad | Sklad | - | - | Přesun: Sklad. |
+| 33 | jdi dilna | Dílna | - | - | Přesun: Dílna. |
+| 34 | jdi osetrovna | Ošetřovna | - | - | Přesun: Ošetřovna. |
+| 35 | jdi servisni tunel | Servisní tunel | - | - | Přesun: Servisní tunel. |
+| 36 | jdi strojovna | Strojovna | - | - | Přesun: Strojovna. |
+| 37 | jdi predsin | Předsíň | - | - | Přesun: Předsíň. |
+| 38 | jdi hangar | Hangár | - | - | Přesun: Hangár. |
+| 39 | seber karta | Hangár | karta | - | Sebráno: karta. |
+| 40 | jdi predsin | Předsíň | karta | - | Přesun: Předsíň. |
+| 41 | jdi strojovna | Strojovna | karta | - | Přesun: Strojovna. |
+| 42 | jdi servisni tunel | Servisní tunel | karta | - | Přesun: Servisní tunel. |
+| 43 | jdi osetrovna | Ošetřovna | karta | - | Přesun: Ošetřovna. |
+| 44 | jdi dilna | Dílna | karta | - | Přesun: Dílna. |
 
 <!-- page -->
 
@@ -149,20 +149,20 @@ Sloupec „Přesný výstup“ tvoří první část sekce 4. U změn se vždy u
 
 | Tah | Příkaz | Prostor | Batoh | Změna | Přesný výstup |
 | --- | --- | --- | --- | --- | --- |
-| 45 | jdi sklad | Sklad | karta | — | Přesun: Sklad. |
-| 46 | jdi velin | Velín | karta | — | Přesun: Velín. |
-| 47 | autorizuj odlet | Velín | — | Povolení, otevřena D | Odlet povolen. Přepážka D je otevřená. |
-| 48 | jdi sklad | Sklad | — | Nákaza: Chodba | Přesun: Sklad. [NL] Nákaza postoupila: Chodba. |
-| 49 | jdi dilna | Dílna | — | — | Přesun: Dílna. |
-| 50 | jdi osetrovna | Ošetřovna | — | — | Přesun: Ošetřovna. |
-| 51 | jdi servisni tunel | Servisní tunel | — | — | Přesun: Servisní tunel. |
-| 52 | jdi strojovna | Strojovna | — | — | Přesun: Strojovna. |
-| 53 | jdi predsin | Předsíň | — | — | Přesun: Předsíň. |
-| 54 | jdi hangar | Hangár | — | — | Přesun: Hangár. |
-| 55 | priprav rampu | Hangár | — | Rampa připravena | Rampa je připravená. |
-| 56 | jdi unikovy modul | Únikový modul | — | — | Přesun: Únikový modul. |
-| 57 | uzavri d | Únikový modul | — | Uzavřena D | Přepážka D je uzavřená. |
-| 58 | odstartuj | Únikový modul | — | Výhra | Únikový modul odstartoval. Vyhráváš. |
+| 45 | jdi sklad | Sklad | karta | - | Přesun: Sklad. |
+| 46 | jdi velin | Velín | karta | - | Přesun: Velín. |
+| 47 | autorizuj odlet | Velín | - | Povolení, otevřena D | Odlet povolen. Přepážka D je otevřená. |
+| 48 | jdi sklad | Sklad | - | Nákaza: Chodba | Přesun: Sklad. [NL] Nákaza postoupila: Chodba. |
+| 49 | jdi dilna | Dílna | - | - | Přesun: Dílna. |
+| 50 | jdi osetrovna | Ošetřovna | - | - | Přesun: Ošetřovna. |
+| 51 | jdi servisni tunel | Servisní tunel | - | - | Přesun: Servisní tunel. |
+| 52 | jdi strojovna | Strojovna | - | - | Přesun: Strojovna. |
+| 53 | jdi predsin | Předsíň | - | - | Přesun: Předsíň. |
+| 54 | jdi hangar | Hangár | - | - | Přesun: Hangár. |
+| 55 | priprav rampu | Hangár | - | Rampa připravena | Rampa je připravená. |
+| 56 | jdi unikovy modul | Únikový modul | - | - | Přesun: Únikový modul. |
+| 57 | uzavri d | Únikový modul | - | Uzavřena D | Přepážka D je uzavřená. |
+| 58 | odstartuj | Únikový modul | - | Výhra | Únikový modul odstartoval. Vyhráváš. |
 
 <!-- page -->
 
@@ -170,10 +170,10 @@ Sloupec „Přesný výstup“ tvoří první část sekce 4. U změn se vždy u
 
 | První použití | Příkaz | Proč je nový příkaz nutný |
 | --- | --- | --- |
-| 1 | seber | — |
-| 2 | jdi | — |
+| 1 | seber | - |
+| 2 | jdi | - |
 | 5 | odjisti | Bez A není dostupná pojistka. |
-| 6 | poloz | — |
+| 6 | poloz | - |
 | 13 | vymen | Bez pojistky rozvaděč nezapne proud. |
 | 14 | zapni | Bez proudu je B zavřená a ventil nelze spustit. |
 | 30 | otevri | Bez chlazení je C zavřená a odlet nelze autorizovat. |
@@ -258,4 +258,4 @@ Před odevzdáním doplňte skutečná jména a xname a potvrďte pracovní rozd
 | Doplnit člena 1 | Doplnit | odjisti, vymen | rozvaděč | mapa |
 | Doplnit člena 2 | Doplnit | zapni, otevri | ventil | pravidla tahů |
 | Doplnit člena 3 | Doplnit | autorizuj, priprav | konzole | herní texty |
-| Doplnit člena 4 | Doplnit | uzavri, odstartuj | — | scénář a příručka |
+| Doplnit člena 4 | Doplnit | uzavri, odstartuj | - | scénář a příručka |
