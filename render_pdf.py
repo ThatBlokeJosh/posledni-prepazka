@@ -49,14 +49,15 @@ class StationMap(Flowable):
     def draw(self):
         names = ["Kajuta", "Chodba", "Chladicí komora", "Velín", "Sklad", "Dílna",
                  "Ošetřovna", "Servisní tunel", "Strojovna", "Předsíň", "Hangár",
-                 "Únikový modul", "Zadní strojovna"]
-        details = ["Start · klika · rozvaděč", "", "Ventil", "Konzole", "Pojistka", "",
-                   "", "", "Patrona", "", "Karta · panel rampy", "Cíl · startovací pult",
-                   "Ohnisko nákazy"]
-        xs = [55, 187, 319, 451]
+                 "Únikový modul", "Zadní strojovna", "Servisní šachta"]
+        details = ["Start · klika · rozvaděč", "", "Ventil", "Konzole",
+                   "Skříň: pojistka", "Servisní stojany", "", "",
+                   "Přepravka: patrona", "", "Schránka: karta · panel",
+                   "Cíl · startovací pult", "Ohnisko nákazy", "Ohnisko nákazy"]
+        xs = [157, 255, 353, 451]
         columns = [0, 1, 2, 3, 3, 2, 1, 0, 0, 1, 2, 3]
         positions = [(xs[col], 247 - 94 * (idx // 4)) for idx, col in enumerate(columns)]
-        positions.append((55, 340))
+        positions.extend([(157, 340), (47, 153)])
         canvas = self.canv
         gates = {3: "A", 4: "B", 8: "C", 10: "D"}
 
@@ -76,16 +77,17 @@ class StationMap(Flowable):
 
         for idx in range(11):
             connect(idx, idx + 1, gates.get(idx))
-        connect(0, 12)
+        connect(0, 12, "E")
+        connect(7, 13, "F")
         for idx, (x, y) in enumerate(positions):
-            canvas.setFillColor(colors.HexColor("#f9e9e4") if idx == 12 else LIGHT)
+            canvas.setFillColor(colors.HexColor("#f9e9e4") if idx >= 12 else LIGHT)
             canvas.setStrokeColor(LINE)
-            canvas.roundRect(x - 53, y - 21, 106, 42, 5, fill=1, stroke=1)
+            canvas.roundRect(x - 40, y - 21, 80, 42, 5, fill=1, stroke=1)
             canvas.setFillColor(INK)
-            canvas.setFont("Bold", 8.5)
+            canvas.setFont("Bold", 7.5)
             canvas.drawCentredString(x, y + 3 if details[idx] else y - 3, f"{idx}  {names[idx]}")
             if details[idx]:
-                canvas.setFont("Regular", 7.3)
+                canvas.setFont("Regular", 6.3)
                 canvas.drawCentredString(x, y - 10, details[idx])
 
 
