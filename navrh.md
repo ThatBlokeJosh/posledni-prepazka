@@ -2,11 +2,13 @@
 
 Návrh a scénář týmové textové adventury pro 4IT107 Programování v Javě
 
-## 1. Téma a zadání hry
+## 1. Téma a pravidla hry
+
+### 1.1 Téma a zadání hry
 
 Na orbitální stanici Orfeus unikla z izolace houbovitá nákaza. Prorůstá otevřenými průchody a vyřazuje systémy stanice. Hráč je službu konající technik. Začíná v Kajutě s prázdným batohem a musí obnovit napájení, spustit chlazení, získat povolení k odletu a odstartovat únikovým modulem. Vyhraje úspěšným příkazem `odstartuj`. Prohra nastane, když je hráč v nakaženém prostoru nebo když na konci 72. tahu zkolabuje stanice před odletem.
 
-### Prostory a počáteční stav
+#### Prostory a počáteční stav
 
 | ID | Prostor a popis | Sousedé | Počáteční vybavení |
 | --- | --- | --- | --- |
@@ -25,19 +27,19 @@ Na orbitální stanici Orfeus unikla z izolace houbovitá nákaza. Prorůstá ot
 | 12 | Zadní strojovna - ohnisko nákazy | 0 (E) | - |
 | 13 | Servisní šachta - druhé ohnisko nákazy | 7 (F) | - |
 
-### Předměty a prvky
+#### Předměty a prvky
 
 Batoh unese jeden přenosný předmět. Klika otevře přepážku A a zůstane v batohu, dokud ji hráč nepoloží. Pojistku spotřebuje rozvaděč, patronu ventil a kartu konzole. Položená věc zůstane v místnosti a lze ji znovu sebrat. Rozvaděč, ventil, konzole, servisní stojany, panel rampy, startovací pult a tři kontejnery jsou nepřenosné. Tři rozšiřující prvky jsou zavřená skříň ve Skladu, zavřená přepravka ve Strojovně a zavřená schránka v Hangáru. Každá má vlastní obsah uvedený v mapě. Příkaz pro otevření přesune obsah kontejneru mezi volné věci v místnosti. Kontejner zůstane otevřený a prázdný. Před otevřením nelze jeho obsah vidět ve výpisu ani sebrat.
 
 <!-- page -->
 
-## 1. Pravidla a příkazy
+### 1.2 Pravidla a příkazy
 
 A, B, C a D jsou na začátku zavřené. Odemykání současně otevře průchod oběma směry. Otevřené A, B a C tak zůstanou. D lze po autorizaci uzavřít zevnitř modulu. E a F jsou zprvu otevřené. Po obnově napájení lze E zavřít z Kajuty a F ze Servisního tunelu. Zavřené D, E a F už znovu otevřít nelze. Všechny neoznačené průchody jsou trvale otevřené. Na začátku jsou nakažené pouze prostory 12 a 13. Pojistka není osazená a napájení, chlazení, autorizace i rampa jsou neaktivní. Napájení, chlazení, autorizace a připravenost rampy se po aktivaci zachovají. Přepážky ovlivňují pohyb hráče i nákazy.
 
 Každý úspěšný pohyb, manipulace s předmětem a nový herní příkaz přičte jeden tah. Změna stavu se provede před posunem nákazy. Po každém 24. tahu nákaza současně přejde do všech prostorů sousedících otevřeným průchodem s množinou místností nakažených před daným šířením. Nákaza zůstane v již nakažených prostorách. Po tahu se zkontroluje nákaza hráče (i v právě zasažené místnosti), pak výhra a nakonec limit 72 tahů. Vyhodnotí se pouze první splněná podmínka. Infekce je pro hráče okamžitě smrtelná, oblek nemá vlastní počítadlo. Po konci hry se relace ukončí. Konec vstupního proudu ukončí relaci se stejným hlášením jako konec.
 
-### Devět nových příkazů
+#### Devět nových příkazů
 
 | Příkaz | Místo a podmínka | Účinek |
 | --- | --- | --- |
@@ -51,7 +53,7 @@ Každý úspěšný pohyb, manipulace s předmětem a nový herní příkaz při
 | uzavri <d/e/f> | D: Únikový modul. E: Kajuta. F: Servisní tunel. Přepážka otevřená, napájení zapnuté. | Trvale zavře zvolenou přepážku. |
 | odstartuj | Únikový modul, rampa připravená a D zavřená | Spustí modul. Pokud nenastane prohra, hráč vítězí. |
 
-### Základní a systémové příkazy
+#### Základní a systémové příkazy
 
 `jdi <prostor>` přesune hráče do sousedního prostoru otevřeným průchodem. `seber <vec>` vloží přenosnou věc z místnosti do prázdného batohu. `poloz <vec>` položí drženou věc v aktuálním prostoru. `pomoc` vypíše syntax, `napoveda` aktuální okolí a batoh, `konec` ukončí relaci bez výsledku hry. `uloz` a `nacti` pracují s pevným souborem save.json v pracovním adresáři.
 
@@ -77,6 +79,8 @@ Vstup se ořízne, převede na malá písmena, odstraní se diakritika a mezi sl
 <!-- page -->
 
 ## 3. Vítězný scénář
+
+### 3.1 Průchod hrou
 
 Jediná trasa k odletu vede hlavní chodbou. Cesta pro pojistku a zpět (0-4-0) zabere 8 pohybů, cesta pro patronu (0-8-2) 14, pro kartu (2-10-3) 15 a cesta k modulu (3-11) 8. Celkem nejméně 45 pohybů. K nim přibývají čtyři sebrání, jedno položení kliky a 13 povinných obslužných akcí (devět různých příkazů, odklop a uzavri každý třikrát). Dolní mez je 63 tahů a scénář jí dosahuje.
 
@@ -150,7 +154,7 @@ Sloupec Přesný výstup je součást sekce 4. Pomlčka ve sloupci Změna znamen
 
 <!-- page -->
 
-## 3. Kontrola scénáře a prohra
+### 3.2 Kontrola scénáře a prohra
 
 | První použití | Příkaz | Proč je nový příkaz nutný |
 | --- | --- | --- |
@@ -167,11 +171,11 @@ Sloupec Přesný výstup je součást sekce 4. Pomlčka ve sloupci Změna znamen
 | 60 | priprav | Bez připravené rampy modul nestartuje. |
 | 63 | odstartuj | Jako jediný vyhodnotí výhru. |
 
-### Krátký prohrávající scénář
+#### Krátký prohrávající scénář
 
 Z nové hry zadej `jdi zadni strojovna`. Tah 1 přesune hráče s prázdným batohem do Zadní strojovny a skončí prohrou. Výstup: Přesun: Zadní strojovna. [NL] Nákaza tě dostihla. Prohráváš.
 
-### Kontrola uložení a načtení
+#### Kontrola uložení a načtení
 
 Po 27. tahu dej `uloz`, pak `konec`. Spusť novou relaci a zadej `nacti`. Obnoví se Strojovna s patronou v batohu, klika na Můstku, osazená pojistka, zapnutý proud, otevřené A a B, zavřené C až F a otevřená skříň i přepravka. Schránka je zavřená. Nákaza je stále ve dvou původních ohniscích. Další tah má číslo 28.
 
@@ -181,7 +185,7 @@ Po 27. tahu dej `uloz`, pak `konec`. Spusť novou relaci a zadej `nacti`. Obnov�
 
 Ve scénáři značí symbol [NL] nový řádek. Výstupy v této části ani ve scénáři neobsahují uvozovky. Úvod se vytiskne po startu nové relace. Jediný výstup výhry je uveden u tahu 63.
 
-### Úvod, konec a systémové příkazy
+### 4.1 Úvod, konec a systémové příkazy
 
 | Událost | Přesný výstup |
 | --- | --- |
@@ -200,7 +204,7 @@ Použij názvy prostorů z mapy, při více nově zasažených prostorech je vyp
 
 <!-- page -->
 
-## 4. Chyby vstupu a souborů
+### 4.2 Chyby vstupu a souborů
 
 | Situace | Přesný výstup |
 | --- | --- |
@@ -219,7 +223,7 @@ Při více chybách vyber první v tomto pořadí: příkaz, parametr, místo, j
 
 <!-- page -->
 
-## 4. Hlášení přepážek a uložení
+### 4.3 Hlášení přepážek a uložení
 
 Za výpis napoveda přidej v následujících místnostech jeden samostatný řádek. Text se nemění se stavem hry.
 

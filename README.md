@@ -7,4 +7,4 @@ Návrh týmové textové adventury pro 4IT107 Programování v Javě. Technik na
 
 Jména a rozdělení práce čtyř členů týmu jsou v šesté části návrhu.
 
-PDF se regeneruje příkazem `python render_pdf.py`. Skript používá Python s balíčkem ReportLab a fonty Noto Sans Regular a Bold. Cestu k fontům lze zadat proměnnou `NOTO_FONT_DIR`.
+PDF se regeneruje příkazem `uv run --with weasyprint python render_pdf.py` (nebo `python render_pdf.py` s nainstalovaným balíčkem WeasyPrint). Skript převede `navrh.md` do HTML/CSS a vysází ho přes WeasyPrint s fonty Space Grotesk, IBM Plex Sans a IBM Plex Mono ze složky `fonts/` (licence OFL).
