@@ -1,4 +1,4 @@
-# Poslední přepážka
+# Vesmírná stanice Orfeus
 
 Návrh a scénář týmové textové adventury pro 4IT107 Programování v Javě
 
@@ -13,7 +13,7 @@ Na orbitální stanici Orfeus unikla z izolace houbovitá nákaza. Prorůstá ot
 | 0 | Kajuta - služební ubytovna | 1, 12 (E) | servisní klika, rozvaděč |
 | 1 | Chodba - obytný koridor | 0, 2 | - |
 | 2 | Chladicí komora - rozvod tepla | 1, 3 | ventil |
-| 3 | Velín - řízení evakuace | 2, 4 (A) | konzole |
+| 3 | Můstek - řízení evakuace | 2, 4 (A) | konzole |
 | 4 | Sklad - náhradní díly | 3 (A), 5 (B) | skříň (pojistka) |
 | 5 | Dílna - servisní stojany pro palubní moduly | 4 (B), 6 | servisní stojany (pevné) |
 | 6 | Ošetřovna - prázdná ambulance | 5, 7 | - |
@@ -41,11 +41,11 @@ Každý úspěšný pohyb, manipulace s předmětem a nový herní příkaz při
 
 | Příkaz | Místo a podmínka | Účinek |
 | --- | --- | --- |
-| odjisti a | Velín, klika v batohu, A zavřená | Otevře A. Klika zůstane hráči. |
+| odjisti a | Můstek, klika v batohu, A zavřená | Otevře A. Klika zůstane hráči. |
 | vymen pojistku | Kajuta, pojistka v batohu, rozvaděč bez pojistky | Spotřebuje pojistku a osadí ji do rozvaděče. |
 | zapni rozvadec | Kajuta, osazená pojistka, proud vypnutý | Zapne napájení a otevře B. |
 | otevri ventil | Chladicí komora, patrona v batohu, proud je zapnutý, chlazení neaktivní | Spotřebuje patronu, spustí chlazení a otevře C. |
-| autorizuj odlet | Velín, karta v batohu, aktivní chlazení, odlet dosud nepovolený | Spotřebuje kartu, autorizuje odlet a otevře D. |
+| autorizuj odlet | Můstek, karta v batohu, aktivní chlazení, odlet dosud nepovolený | Spotřebuje kartu, autorizuje odlet a otevře D. |
 | odklop <kontejner> | Sklad: skrin, Strojovna: prepravka, Hangár: schranka. Kontejner je zavřený. | Otevře kontejner a uvolní jeho obsah do místnosti. |
 | priprav rampu | Hangár, autorizovaný odlet, E a F uzavřené, rampa nepřipravená | Připraví rampu. |
 | uzavri <d/e/f> | D: Únikový modul. E: Kajuta. F: Servisní tunel. Přepážka otevřená, napájení zapnuté. | Trvale zavře zvolenou přepážku. |
@@ -67,10 +67,10 @@ Vstup se ořízne, převede na malá písmena, odstraní se diakritika a mezi sl
 
 | Přepážka | Co ji otevře |
 | --- | --- |
-| A - Velín / Sklad | Odjištění klikou z Velína. |
+| A - Můstek / Sklad | Odjištění klikou z Můstku. |
 | B - Sklad / Dílna | Obnovení napájení v Kajutě. |
 | C - Strojovna / Předsíň | Spuštění chlazení v Chladicí komoře. |
-| D - Hangár / Únikový modul | Autorizace odletu ve Velínu. Zevnitř modulu se po průchodu uzavře. |
+| D - Hangár / Únikový modul | Autorizace odletu na Můstku. Zevnitř modulu se po průchodu uzavře. |
 | E - Kajuta / Zadní strojovna | Zprvu otevřená. Z Kajuty ji lze uzavřít po obnově proudu. |
 | F - Servisní tunel / Servisní šachta | Zprvu otevřená. Z tunelu ji lze uzavřít po obnově proudu. |
 
@@ -87,20 +87,13 @@ Sloupec Přesný výstup je součást sekce 4. Pomlčka ve sloupci Změna znamen
 | 1 | seber servisni klika | Kajuta | servisní klika | - | Sebráno: servisní klika. |
 | 2 | jdi chodba | Chodba | servisní klika | - | Přesun: Chodba. |
 | 3 | jdi chladici komora | Chladicí komora | servisní klika | - | Přesun: Chladicí komora. |
-| 4 | jdi velin | Velín | servisní klika | - | Přesun: Velín. |
-| 5 | odjisti a | Velín | servisní klika | Otevřena A | Přepážka A je otevřená. |
-| 6 | poloz servisni klika | Velín | - | - | Položeno: servisní klika. |
+| 4 | jdi mustek | Můstek | servisní klika | - | Přesun: Můstek. |
+| 5 | odjisti a | Můstek | servisní klika | Otevřena A | Přepážka A je otevřená. |
+| 6 | poloz servisni klika | Můstek | - | - | Položeno: servisní klika. |
 | 7 | jdi sklad | Sklad | - | - | Přesun: Sklad. |
 | 8 | odklop skrin | Sklad | - | Skříň otevřena, pojistka ve Skladu. | Otevřeno: skříň. Obsah: pojistka. |
 | 9 | seber pojistka | Sklad | pojistka | - | Sebráno: pojistka. |
-| 10 | jdi velin | Velín | pojistka | - | Přesun: Velín. |
-
-<!-- page -->
-
-## 3. Vítězný scénář · tahy 11 až 24
-
-| Tah | Příkaz | Prostor | Batoh | Změna | Přesný výstup |
-| --- | --- | --- | --- | --- | --- |
+| 10 | jdi mustek | Můstek | pojistka | - | Přesun: Můstek. |
 | 11 | jdi chladici komora | Chladicí komora | pojistka | - | Přesun: Chladicí komora. |
 | 12 | jdi chodba | Chodba | pojistka | - | Přesun: Chodba. |
 | 13 | jdi kajuta | Kajuta | pojistka | - | Přesun: Kajuta. |
@@ -109,19 +102,12 @@ Sloupec Přesný výstup je součást sekce 4. Pomlčka ve sloupci Změna znamen
 | 16 | uzavri e | Kajuta | - | Ohnisko v Zadní strojovně izolováno. | Přepážka E je uzavřená. |
 | 17 | jdi chodba | Chodba | - | - | Přesun: Chodba. |
 | 18 | jdi chladici komora | Chladicí komora | - | - | Přesun: Chladicí komora. |
-| 19 | jdi velin | Velín | - | - | Přesun: Velín. |
+| 19 | jdi mustek | Můstek | - | - | Přesun: Můstek. |
 | 20 | jdi sklad | Sklad | - | - | Přesun: Sklad. |
 | 21 | jdi dilna | Dílna | - | - | Přesun: Dílna. |
 | 22 | jdi osetrovna | Ošetřovna | - | - | Přesun: Ošetřovna. |
 | 23 | jdi servisni tunel | Servisní tunel | - | - | Přesun: Servisní tunel. |
 | 24 | uzavri f | Servisní tunel | - | Ohnisko v Servisní šachtě izolováno. | Přepážka F je uzavřená. |
-
-<!-- page -->
-
-## 3. Vítězný scénář · tahy 25 až 38
-
-| Tah | Příkaz | Prostor | Batoh | Změna | Přesný výstup |
-| --- | --- | --- | --- | --- | --- |
 | 25 | jdi strojovna | Strojovna | - | - | Přesun: Strojovna. |
 | 26 | odklop prepravka | Strojovna | - | Přepravka otevřena, patrona ve Strojovně. | Otevřeno: přepravka. Obsah: patrona. |
 | 27 | seber patrona | Strojovna | patrona | - | Sebráno: patrona. |
@@ -129,20 +115,13 @@ Sloupec Přesný výstup je součást sekce 4. Pomlčka ve sloupci Změna znamen
 | 29 | jdi osetrovna | Ošetřovna | patrona | - | Přesun: Ošetřovna. |
 | 30 | jdi dilna | Dílna | patrona | - | Přesun: Dílna. |
 | 31 | jdi sklad | Sklad | patrona | - | Přesun: Sklad. |
-| 32 | jdi velin | Velín | patrona | - | Přesun: Velín. |
+| 32 | jdi mustek | Můstek | patrona | - | Přesun: Můstek. |
 | 33 | jdi chladici komora | Chladicí komora | patrona | - | Přesun: Chladicí komora. |
 | 34 | otevri ventil | Chladicí komora | - | Chlazení, otevřena C | Chlazení běží. Přepážka C je otevřená. |
-| 35 | jdi velin | Velín | - | - | Přesun: Velín. |
+| 35 | jdi mustek | Můstek | - | - | Přesun: Můstek. |
 | 36 | jdi sklad | Sklad | - | - | Přesun: Sklad. |
 | 37 | jdi dilna | Dílna | - | - | Přesun: Dílna. |
 | 38 | jdi osetrovna | Ošetřovna | - | - | Přesun: Ošetřovna. |
-
-<!-- page -->
-
-## 3. Vítězný scénář · tahy 39 až 52
-
-| Tah | Příkaz | Prostor | Batoh | Změna | Přesný výstup |
-| --- | --- | --- | --- | --- | --- |
 | 39 | jdi servisni tunel | Servisní tunel | - | - | Přesun: Servisní tunel. |
 | 40 | jdi strojovna | Strojovna | - | - | Přesun: Strojovna. |
 | 41 | jdi predsin | Předsíň | - | - | Přesun: Předsíň. |
@@ -155,15 +134,8 @@ Sloupec Přesný výstup je součást sekce 4. Pomlčka ve sloupci Změna znamen
 | 48 | jdi osetrovna | Ošetřovna | karta | - | Přesun: Ošetřovna. |
 | 49 | jdi dilna | Dílna | karta | - | Přesun: Dílna. |
 | 50 | jdi sklad | Sklad | karta | - | Přesun: Sklad. |
-| 51 | jdi velin | Velín | karta | - | Přesun: Velín. |
-| 52 | autorizuj odlet | Velín | - | Povolení, otevřena D | Odlet povolen. Přepážka D je otevřená. |
-
-<!-- page -->
-
-## 3. Vítězný scénář · tahy 53 až 63
-
-| Tah | Příkaz | Prostor | Batoh | Změna | Přesný výstup |
-| --- | --- | --- | --- | --- | --- |
+| 51 | jdi mustek | Můstek | karta | - | Přesun: Můstek. |
+| 52 | autorizuj odlet | Můstek | - | Povolení, otevřena D | Odlet povolen. Přepážka D je otevřená. |
 | 53 | jdi sklad | Sklad | - | - | Přesun: Sklad. |
 | 54 | jdi dilna | Dílna | - | - | Přesun: Dílna. |
 | 55 | jdi osetrovna | Ošetřovna | - | - | Přesun: Ošetřovna. |
@@ -201,7 +173,7 @@ Z nové hry zadej `jdi zadni strojovna`. Tah 1 přesune hráče s prázdným bat
 
 ### Kontrola uložení a načtení
 
-Po 27. tahu dej `uloz`, pak `konec`. Spusť novou relaci a zadej `nacti`. Obnoví se Strojovna s patronou v batohu, klika ve Velínu, osazená pojistka, zapnutý proud, otevřené A a B, zavřené C až F a otevřená skříň i přepravka. Schránka je zavřená. Nákaza je stále ve dvou původních ohniscích. Další tah má číslo 28.
+Po 27. tahu dej `uloz`, pak `konec`. Spusť novou relaci a zadej `nacti`. Obnoví se Strojovna s patronou v batohu, klika na Můstku, osazená pojistka, zapnutý proud, otevřené A a B, zavřené C až F a otevřená skříň i přepravka. Schránka je zavřená. Nákaza je stále ve dvou původních ohniscích. Další tah má číslo 28.
 
 <!-- page -->
 
@@ -213,7 +185,7 @@ Ve scénáři značí symbol [NL] nový řádek. Výstupy v této části ani ve
 
 | Událost | Přesný výstup |
 | --- | --- |
-| Úvod | Poslední přepážka. Stanice Orfeus je napadena. Ohniska: Zadní strojovna, Servisní šachta. Do kolapsu zbývá 72 tahů. Dostaň se do únikového modulu a odstartuj. Začínáš v prostoru Kajuta. Napiš pomoc pro seznam příkazů. |
+| Úvod | Vesmírná stanice Orfeus je napadena. Ohniska: Zadní strojovna, Servisní šachta. Do kolapsu zbývá 72 tahů. Dostaň se do únikového modulu a odstartuj. Začínáš v prostoru Kajuta. Napiš pomoc pro seznam příkazů. |
 | pomoc | Příkazy: jdi <prostor>, seber <vec>, poloz <vec>, odjisti a, vymen pojistku, zapni rozvadec, otevri ventil, autorizuj odlet, odklop <kontejner>, priprav rampu, uzavri <d/e/f>, odstartuj, pomoc, napoveda, uloz, nacti, konec. |
 | napoveda | Prostor: {prostor}. Sousední prostory: {sousedé}. Věci tady: {věci}. Batoh: {batoh}. Do kolapsu zbývá {72 minus počet tahů}. Zavřená přepážka brání nákaze v postupu. |
 | uloz / nacti | Hra uložena. / Hra načtena. |
@@ -255,7 +227,7 @@ Za výpis napoveda přidej v následujících místnostech jeden samostatný ř�
 | --- | --- |
 | Kajuta | Rozvaděč potřebuje pojistku. Přepážka E má elektrický pohon. |
 | Chladicí komora | Ventil potřebuje napájení a chladicí patronu. |
-| Velín | Přepážku A odjistí servisní klika. Konzole potřebuje chlazení a kartu. |
+| Můstek | Přepážku A odjistí servisní klika. Konzole potřebuje chlazení a kartu. |
 | Servisní tunel | Přepážka F má elektrický pohon. |
 | Hangár | Rampa vyžaduje autorizaci a uzavřené přepážky E a F. |
 | Únikový modul | Start vyžaduje připravenou rampu a uzavřenou přepážku D. |
@@ -264,7 +236,7 @@ Soubor save.json obsahuje verzi formátu, ID prostoru hráče, pozici každé p�
 
 ## 5. Uživatelská příručka
 
-Po sestavení hotové hry spusť v terminálu `java -jar target/posledni-prepazka.jar`. Cílem je opustit napadenou stanici v únikovém modulu. Každou akci napiš na samostatný řádek a potvrď Enterem. Používej názvy prostorů a předmětů tak, jak je uvádí hra. Příkazy fungují i bez české diakritiky.
+Po sestavení hotové hry spusť v terminálu `java -jar target/vesmirna-stanice-orfeus.jar`. Cílem je opustit napadenou stanici v únikovém modulu. Každou akci napiš na samostatný řádek a potvrď Enterem. Používej názvy prostorů a předmětů tak, jak je uvádí hra. Příkazy fungují i bez české diakritiky.
 
 - `jdi <prostor>`, `seber <vec>` a `poloz <vec>` slouží k pohybu a manipulaci s předměty. Batoh má jedno místo.
 - `odjisti a`, `vymen pojistku`, `zapni rozvadec`, `otevri ventil`, `autorizuj odlet`, `odklop <kontejner>`, `priprav rampu`, `uzavri <d/e/f>` a `odstartuj` slouží k obsluze stanice a modulu.
@@ -274,11 +246,11 @@ Po sestavení hotové hry spusť v terminálu `java -jar target/posledni-prepazk
 
 ## 6. Členové týmu
 
-Před odevzdáním doplňte skutečná jména a xname a potvrďte pracovní rozdělení. Každý nový příkaz a každý rozšiřující prvek má právě jednoho odpovědného člena.
+Každý nový příkaz a každý rozšiřující prvek má právě jednoho odpovědného člena.
 
 | Jméno a příjmení | xname | Nové příkazy | Prvek | Další podíl |
 | --- | --- | --- | --- | --- |
-| Člen 1 | Doplnit | odjisti, vymen, odklop | skříň | Mapa, společná pravidla kontejnerů a inventář |
-| Člen 2 | Doplnit | zapni, otevri | přepravka | Tahy, šíření nákazy a vyhodnocení prohry |
-| Člen 3 | Doplnit | autorizuj, priprav | schránka | Přesné herní texty, uložení a načtení |
-| Člen 4 | Doplnit | uzavri, odstartuj | - | Přepážky, scénáře a uživatelská příručka |
+| Joshua Thomas Remington | remj02 | odjisti, vymen, odklop | skříň | Mapa, společná pravidla kontejnerů a inventář |
+| Jozef Novikmec | novj101 | zapni, otevri | přepravka | Tahy, šíření nákazy a vyhodnocení prohry |
+| Aurelius Theodor Klíma | klia15 | autorizuj, priprav | schránka | Přesné herní texty, uložení a načtení |
+| Vanessa Bojková | bojv01 | uzavri, odstartuj | - | Přepážky, scénáře a uživatelská příručka |

@@ -12,7 +12,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import Flowable, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 ROOT = Path(__file__).resolve().parent
-OUTPUT = ROOT / "output/pdf/posledni-prepazka-navrh.pdf"
+OUTPUT = ROOT / "output/pdf/vesmirna-stanice-orfeus-navrh.pdf"
 FONT_DIR = Path(os.environ.get("NOTO_FONT_DIR", "/usr/share/fonts/noto"))
 for name in ("Regular", "Bold"):
     pdfmetrics.registerFont(TTFont(name, str(FONT_DIR / f"NotoSans-{name}.ttf")))
@@ -47,7 +47,7 @@ class StationMap(Flowable):
         self.height = 370
 
     def draw(self):
-        names = ["Kajuta", "Chodba", "Chladicí komora", "Velín", "Sklad", "Dílna",
+        names = ["Kajuta", "Chodba", "Chladicí komora", "Můstek", "Sklad", "Dílna",
                  "Ošetřovna", "Servisní tunel", "Strojovna", "Předsíň", "Hangár",
                  "Únikový modul", "Zadní strojovna", "Servisní šachta"]
         details = ["Start · klika · rozvaděč", "", "Ventil", "Konzole",
@@ -118,7 +118,7 @@ def footer(canvas, doc):
     canvas.line(44, 43, A4[0] - 44, 43)
     canvas.setFillColor(TEAL)
     canvas.setFont("Regular", 8)
-    canvas.drawString(44, 29, "Poslední přepážka  ·  Návrh hry  ·  4IT107")
+    canvas.drawString(44, 29, "Vesmírná stanice Orfeus  ·  Návrh hry  ·  4IT107")
     canvas.drawRightString(A4[0] - 44, 29, str(doc.page))
 
 
@@ -150,7 +150,7 @@ def main():
             flow.append(para(line))
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     SimpleDocTemplate(str(OUTPUT), pagesize=A4, leftMargin=44, rightMargin=44,
-                      topMargin=44, bottomMargin=57, title="Poslední přepážka",
+                      topMargin=44, bottomMargin=57, title="Vesmírná stanice Orfeus",
                       author="Tým 4IT107").build(flow, onFirstPage=footer, onLaterPages=footer)
 
 
